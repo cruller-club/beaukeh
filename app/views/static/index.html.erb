@@ -1,27 +1,78 @@
 <% view_title 'Welcome!' %>
 
 <% content_for :main do %>
+    <svg id="beaukeh"></svg>
+    <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
 
-    <canvas id="bokoup"></canvas>
-    <script src="https://d3js.org/d3-random.v1.min.js"></script>
     <script>
-        var canvas = document.querySelector("#bokoup"),
-            context = canvas.getContext("2d");
+        var beaukeh = d3.select("#beaukeh");
+        
+        var width = document.querySelector("main").clientWidth;
+        var height = Math.round(width * (9/16));
 
-        render();
+        draw();
 
-        canvas.onclick = render;
-        window.onresize = render;
+        window.onresize = draw;
+        document.querySelector("#beaukeh").onclick = draw;
 
-        function render() {
-            canvas.width = document.querySelector("main").clientWidth;
-            canvas.height = canvas.width * (9/16);
+        function draw() {
+            // Clean up.
+            d3.selectAll("#beaukeh > *").remove();
 
-            paletteCreator();
+            // Make a "canvas".
+            beaukeh.attr("width", width)
+                .attr("height", height);
+        
+            // Paint a background.
+            beaukeh.append("rect")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("fill", generateColor(0.50, 0.10, 1.00));
+
+            // Beaukeh time!
+            var beaukehs = d3.randomUniform(25, 200)();
+            for (i = 0; i < beaukehs; i++) {
+                generateCircle(width, height);
+            }
+
+            //convert();
         }
 
-        function paletteCreator() {
-            console.log(d3.randomUniform(1,10));
+        // function convert() {
+        //     var svgString = new XMLSerializer().serializeToString(document.querySelector('svg'));
+
+        //     var canvas = document.getElementById("canvas");
+        //     var ctx = canvas.getContext("2d");
+        //     var DOMURL = self.URL || self.webkitURL || self;
+        //     var img = new Image();
+        //     var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+        //     var url = DOMURL.createObjectURL(svg);
+        //     img.onload = function() {
+        //         ctx.drawImage(img, 0, 0);
+        //         // var png = canvas.toDataURL("image/png");
+        //         // document.querySelector('#png-container').innerHTML = '<img src="'+png+'"/>';
+        //         // DOMURL.revokeObjectURL(png);
+        //     };
+        //     img.src = url;
+        // }
+
+        function generateColor(saturation = 0.50, brightness = 0.50, alpha = 0.10) {
+            var hue = d3.randomUniform(0, 360)();
+            var color = d3.hsl(hue, saturation, brightness, alpha);
+
+            return color;
+        }
+        
+        function generateBackground() {
+            beaukeh.append("rect");
+        }
+
+        function generateCircle(width, height) {
+            beaukeh.append("circle")
+                .attr("r", Math.abs(d3.randomNormal()() * (height / 10)))
+                .attr("cx", d3.randomNormal((width / 2), (width / 3))())
+                .attr("cy", d3.randomNormal((height / 2), (height / 10))())
+                .attr("fill", generateColor());
         }
     </script>
 <% end %>
