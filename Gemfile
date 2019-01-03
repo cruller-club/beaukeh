@@ -56,6 +56,7 @@ group :production do
   # Support for Heroku deployments
   gem 'pg'
   gem 'rails_12factor'
+  gem 'webpacker'
 end
 
 # Manage application environment variables
