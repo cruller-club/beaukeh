@@ -4,4 +4,7 @@ class StaticController < ApplicationController
 
   def about
   end
+
+  def gimme
+  end
 end
