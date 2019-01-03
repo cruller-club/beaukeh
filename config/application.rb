@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Beaukeh
   class Application < Rails::Application
-    config.app_name = "beaukeh"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
