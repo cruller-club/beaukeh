@@ -1,3 +1,20 @@
 #beaukeh {
-    /*background-color: #343a40;*/
+    width: 100%;
+}
+
+.btn-link {
+    color: #ffffff;
+    opacity: 0.50;
+}
+
+main {
+    max-width: 100%!important;
+}
+
+header {
+    opacity: 0.50;
+}
+
+footer {
+    opacity: 0.25;
 }

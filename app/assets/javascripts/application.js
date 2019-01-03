@@ -13,7 +13,9 @@
 //= require d3.min
 //= require d3-random.min
 //= require d3-color.min
+//= require filesaver
+//= require png-conversion
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .

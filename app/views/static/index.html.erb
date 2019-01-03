@@ -3,76 +3,27 @@
 <% content_for :main do %>
     <svg id="beaukeh"></svg>
     <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
+    <button class="btn btn-link" id="save">Download this beaukeh!</button>
 
     <script>
         var beaukeh = d3.select("#beaukeh");
         
         var width = document.querySelector("main").clientWidth;
-        var height = Math.round(width * (9/16));
+        var height = Math.round(width * (0.40));
 
         draw();
 
         window.onresize = draw;
         document.querySelector("#beaukeh").onclick = draw;
 
-        function draw() {
-            // Clean up.
-            d3.selectAll("#beaukeh > *").remove();
+        // PNG conversion shamelessly stolen from Nikita Rokotyan (http://bl.ocks.org/Rokotyan/0556f8facbaf344507cdc45dc3622177)
+        d3.select('#save').on('click', function(){
+            var svgString = getSVGString(beaukeh.node());
+            svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
 
-            // Make a "canvas".
-            beaukeh.attr("width", width)
-                .attr("height", height);
-        
-            // Paint a background.
-            beaukeh.append("rect")
-                .attr("width", width)
-                .attr("height", height)
-                .attr("fill", generateColor(0.50, 0.10, 1.00));
-
-            // Beaukeh time!
-            var beaukehs = d3.randomUniform(25, 200)();
-            for (i = 0; i < beaukehs; i++) {
-                generateCircle(width, height);
+            function save( dataBlob, filesize ){
+                saveAs( dataBlob, 'beaukeh.png' ); // FileSaver.js function
             }
-
-            //convert();
-        }
-
-        // function convert() {
-        //     var svgString = new XMLSerializer().serializeToString(document.querySelector('svg'));
-
-        //     var canvas = document.getElementById("canvas");
-        //     var ctx = canvas.getContext("2d");
-        //     var DOMURL = self.URL || self.webkitURL || self;
-        //     var img = new Image();
-        //     var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
-        //     var url = DOMURL.createObjectURL(svg);
-        //     img.onload = function() {
-        //         ctx.drawImage(img, 0, 0);
-        //         // var png = canvas.toDataURL("image/png");
-        //         // document.querySelector('#png-container').innerHTML = '<img src="'+png+'"/>';
-        //         // DOMURL.revokeObjectURL(png);
-        //     };
-        //     img.src = url;
-        // }
-
-        function generateColor(saturation = 0.50, brightness = 0.50, alpha = 0.10) {
-            var hue = d3.randomUniform(0, 360)();
-            var color = d3.hsl(hue, saturation, brightness, alpha);
-
-            return color;
-        }
-        
-        function generateBackground() {
-            beaukeh.append("rect");
-        }
-
-        function generateCircle(width, height) {
-            beaukeh.append("circle")
-                .attr("r", Math.abs(d3.randomNormal()() * (height / 10)))
-                .attr("cx", d3.randomNormal((width / 2), (width / 3))())
-                .attr("cy", d3.randomNormal((height / 2), (height / 10))())
-                .attr("fill", generateColor());
-        }
+        });
     </script>
 <% end %>
