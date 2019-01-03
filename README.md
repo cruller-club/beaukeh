@@ -1,24 +1,7 @@
-# README
+# Beaukeh
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I was pretty bored. So, I built Beaukeh and...
 
-Things you may want to cover:
+I'm still bored, but now I have softly colored circles to stare at.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Click the main panel to re-draw. Click the little download link to download a big ol' PNG. Or, hit the `/gimme` to autodownload a big ol' PNG (and refresh to your heart's content).
