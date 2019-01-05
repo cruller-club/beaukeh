@@ -9,7 +9,7 @@
         var beaukeh = d3.select("#beaukeh");
         
         var width = document.querySelector("main").clientWidth;
-        var height = Math.round(width * (0.40));
+        var height = Math.round(width * (9 / 21));
 
         draw();
 
@@ -19,7 +19,9 @@
         // PNG conversion shamelessly stolen from Nikita Rokotyan (http://bl.ocks.org/Rokotyan/0556f8facbaf344507cdc45dc3622177)
         d3.select('#save').on('click', function(){
             var svgString = getSVGString(beaukeh.node());
-            svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+            svgString2Image( svgString, 2 * width, 2 * height, 'png', save ); // passes Blob and filesize String to the callback
+
+            console.log("Gimme-ing a [" + (2 * width) + "x" + (2 * height) + "] Beaukeh");
 
             function save( dataBlob, filesize ){
                 saveAs( dataBlob, 'beaukeh.png' ); // FileSaver.js function
