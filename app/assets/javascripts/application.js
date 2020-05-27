@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require d3.min
-//= require d3-random.min
-//= require d3-color.min
 //= require filesaver
 //= require png-conversion
 //= require rails-ujs

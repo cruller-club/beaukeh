@@ -12,14 +12,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-
-# For the glyphs!
-Rails.application.config.assets.precompile += ['glyphicons-halflings-regular.*']
-	
-# To support controller specific css/js rendering
-Rails.application.config.assets.precompile += ['*.css']
-Rails.application.config.assets.precompile += ['*.scss']
-Rails.application.config.assets.precompile += ['*.js']
-
-# All my lib images
-Rails.application.config.assets.precompile += ['*.png']

@@ -1,5 +1,5 @@
 current directory: /Users/ksaid/Code/beaukeh/vendor/bundle/ruby/2.6.0/gems/ffi-1.12.2/ext/ffi_c
-/Users/ksaid/.rbenv/versions/2.6.5/bin/ruby -I /Users/ksaid/.rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20200527-23427-z3f0b1.rb extconf.rb
+/Users/ksaid/.rbenv/versions/2.6.5/bin/ruby -I /Users/ksaid/.rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20200527-39831-118gf41.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... no
 checking for shlwapi.h... no
@@ -138,4 +138,4 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.bundle
-/usr/local/bin/ginstall -c -m 0755 ffi_c.bundle ./.gem.20200527-23427-k3uz43
+/usr/local/bin/ginstall -c -m 0755 ffi_c.bundle ./.gem.20200527-39831-u75v3m
