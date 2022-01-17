@@ -70,3 +70,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'chroma' # For colors.
+gem 'victor' # For SVGs.
+gem 'rubystats' # For normal distributions.

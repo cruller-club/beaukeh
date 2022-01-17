@@ -82,6 +82,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    chroma (0.2.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     debug (1.4.0)
@@ -170,6 +171,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rubystats (0.3.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
@@ -193,6 +195,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    victor (0.3.3)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -215,17 +218,20 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  chroma
   debug
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.1)
+  rubystats
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data
+  victor
   web-console
   webdrivers
 

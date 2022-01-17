@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Beaukeh</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en" class="h-100">
+  <%= render partial: 'shared/head' %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <body class="d-flex flex-column h-100">
+    <%= render partial: 'shared/nav' %>
+    
+    <main class="flex-shrink-0">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </main>
 
-  <body>
-    <%= yield %>
+    <%= render partial: 'shared/foot' %>
   </body>
 </html>

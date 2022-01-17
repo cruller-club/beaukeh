@@ -1,0 +1,20 @@
+<%= form_with url: root_path do |form| %>
+<%= form.hidden_field :svg, value: @svg %>
+<div class="btn-group-vertical" data-controller="static">
+<% if brightness == 'light' %>
+  <%= form.submit 'Gimme this beaukeh!', {
+    class: 'btn btn-link text-dark',
+    id: 'gimme_beaukeh',
+    'data-action': 'click -> static#download' } %>
+  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-dark">Cruller me bad!</a>
+  <a href="https://github.com/cruller-club" target=_blank class="btn btn-link text-dark">Git uppah! Git on up!</a>
+<% else %>
+  <%= form.submit 'Gimme this beaukeh!', {
+    class: 'btn btn-link text-light',
+    id: 'gimme_beaukeh',
+    'data-action': 'click -> static#download' } %>
+  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-light">Cruller me bad!</a>
+  <a href="https://github.com/cruller-club" target=_blank class="btn btn-link text-light">Git uppah! Git on up!</a>
+<% end %>
+</div>
+<% end %>

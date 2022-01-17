@@ -1,0 +1,17 @@
+<% view_title 'Welcome!' %>
+
+<a href="/">
+  <%= @svg.html_safe %>
+</a>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center fancy">
+      <%= beaukeh_button_group(@background_color) %>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.body.style.backgroundColor = "#<%= @background_color %>"
+</script>
