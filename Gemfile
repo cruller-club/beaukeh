@@ -74,3 +74,4 @@ end
 gem 'chroma' # For colors.
 gem 'victor' # For SVGs.
 gem 'rubystats' # For normal distributions.
+gem 'pg'
