@@ -5,9 +5,9 @@
   id='beaukeh'
   class='btn btn-link text-dark'
   data-static-signature-param="<%= @signature %>"
-  data-action='click -> static#download'>Gimme this beaukeh!</a>
-  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-dark">
-    <%= @signature %> on #<%= @background_color %>
+  data-action='click -> static#download'>
+  Gimme this beaukeh!<br/>
+  <%= "#{@signature[0..5]} [...] #{@signature[-5..-1]}" %> on #<%= @background_color %>
   </a>
 <% else %>
   <a
@@ -15,9 +15,9 @@
   id='beaukeh'
   class='btn btn-link text-light'
   data-static-signature-param="<%= @signature %>"
-  data-action='click -> static#download'>Gimme this beaukeh!</a>
-  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-light">
-    <%= @signature %> on #<%= @background_color %>
+  data-action='click -> static#download'> 
+  Gimme this beaukeh!<br/>
+  <%= "#{@signature[0..5]} [...] #{@signature[-5..-1]}" %> on #<%= @background_color %>
   </a>
 <% end %>
 </div>
