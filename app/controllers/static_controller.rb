@@ -3,6 +3,7 @@ class StaticController < ApplicationController
     beaukeh = Beau.new
 
     @svg = beaukeh.svg
+    @signature = beaukeh.signature
     @background_color = beaukeh.background_color
   end
 

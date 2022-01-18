@@ -34,6 +34,7 @@ class Beau < ApplicationRecord
     end
 
     self.svg = beaukeh.render
+    self.signature = Digest::SHA256.hexdigest self.svg
   end
 
   private

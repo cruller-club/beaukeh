@@ -1,20 +1,23 @@
-<%= form_with url: root_path do |form| %>
-<%= form.hidden_field :svg, value: @svg %>
 <div class="btn-group-vertical" data-controller="static">
 <% if brightness == 'light' %>
-  <%= form.submit 'Gimme this beaukeh!', {
-    class: 'btn btn-link text-dark',
-    id: 'gimme_beaukeh',
-    'data-action': 'click -> static#download' } %>
-  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-dark">Cruller me bad!</a>
-  <a href="https://github.com/cruller-club" target=_blank class="btn btn-link text-dark">Git uppah! Git on up!</a>
+  <a
+  href="<%= root_path() %>"
+  id='beaukeh'
+  class='btn btn-link text-dark'
+  data-static-signature-param="<%= @signature %>"
+  data-action='click -> static#download'>Gimme this beaukeh!</a>
+  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-dark">
+    <%= @signature %> on #<%= @background_color %>
+  </a>
 <% else %>
-  <%= form.submit 'Gimme this beaukeh!', {
-    class: 'btn btn-link text-light',
-    id: 'gimme_beaukeh',
-    'data-action': 'click -> static#download' } %>
-  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-light">Cruller me bad!</a>
-  <a href="https://github.com/cruller-club" target=_blank class="btn btn-link text-light">Git uppah! Git on up!</a>
+  <a
+  href="<%= root_path() %>"
+  id='beaukeh'
+  class='btn btn-link text-light'
+  data-static-signature-param="<%= @signature %>"
+  data-action='click -> static#download'>Gimme this beaukeh!</a>
+  <a href="https://cruller.club/<%= @background_color %>" target=_blank class="btn btn-link text-light">
+    <%= @signature %> on #<%= @background_color %>
+  </a>
 <% end %>
 </div>
-<% end %>

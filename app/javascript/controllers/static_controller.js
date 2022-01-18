@@ -9,9 +9,8 @@ export default class extends Controller {
     
     sap.saveSvgAsPng(
       svg,
-      'beaukeh.png',
-      { scale: 10,
-        // height: 2000,
+      event.params['signature'],
+      { scale: 10, // This produces 4700 x 2000 pixel images.
         excludeCss: true,
         encoderOptions: 1
       }
