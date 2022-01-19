@@ -15,5 +15,7 @@ export default class extends Controller {
         encoderOptions: 1
       }
     )
+
+    window.location.reload
   }
 }

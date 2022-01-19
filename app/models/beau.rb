@@ -1,8 +1,6 @@
 class Beau < ApplicationRecord
-  after_initialize :make_a_beaukeh
-
-  def make_a_beaukeh
-    self.background_color = gimme_a_color
+  def make_a_beaukeh(background_color = nil)
+    self.background_color = background_color || gimme_a_color
 
     # Set up the main SVG container.
     beaukeh = Victor::SVG.new(

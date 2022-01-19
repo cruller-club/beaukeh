@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'static/about', to: 'static#about', as: :about
   get '/', to: 'static#index', as: :index
   post '/', to: 'static#gimme', as: :gimme
+  get '/static/background/:background_color', to: 'static#background', as: :background
 end
