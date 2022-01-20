@@ -10,7 +10,7 @@ export default class extends Controller {
     sap.saveSvgAsPng(
       svg,
       event.params['signature'],
-      { scale: 10, // This produces 4700 x 2000 pixel images.
+      { scale: 20, // This produces 4700 x 2000 pixel images.
         excludeCss: true,
         encoderOptions: 1
       }

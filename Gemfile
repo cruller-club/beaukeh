@@ -71,7 +71,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'chroma' # For colors.
+gem 'color'
 gem 'victor' # For SVGs.
 gem 'rubystats' # For normal distributions.
 gem 'pg'

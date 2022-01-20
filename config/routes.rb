@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  get 'static/about', to: 'static#about', as: :about
-  get '/', to: 'static#index', as: :index
-  post '/', to: 'static#gimme', as: :gimme
-  get '/static/background/:background_color', to: 'static#background', as: :background
+  get 'about', to: 'static#about', as: :about
+  
+  get 'static', to: 'static#index', as: :index
+  get 'static/:background_color', to: 'static#index', as: :background
+  post 'static', to: 'static#gimme', as: :gimme
 end

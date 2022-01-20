@@ -1,23 +1,35 @@
+ActiveRecord::Base.include_root_in_json = true
+
 class StaticController < ApplicationController
   def index
     beaukeh = Beau.new
-    beaukeh.make_a_beaukeh
+    @background_color = background_params
+    
+    if @background_color.nil?
+      @sticky = false
+    else
+      @sticky = true
+    end
+
+    beaukeh.make_a_beaukeh(@background_color)
+    @background_color = beaukeh.background_color
 
     @svg = beaukeh.svg
     @signature = beaukeh.signature
-    @background_color = beaukeh.background_color
+    @population = beaukeh.population
+    @density = beaukeh.density
+    @aura = beaukeh.aura
+    @energy = beaukeh.energy
+
+    respond_to do |format|
+      format.html {}
+      format.json {
+        render json: JSON.pretty_generate(beaukeh.as_json)
+      }
+    end
   end
 
   def about
-  end
-
-  def background
-    beaukeh = Beau.new
-    beaukeh.make_a_beaukeh(background_params)
-
-    @svg = beaukeh.svg
-    @signature = beaukeh.signature
-    @background_color = beaukeh.background_color
   end
 
   def gimme
@@ -29,13 +41,17 @@ class StaticController < ApplicationController
   private
 
   def background_params
-    params.require(:background_color)
-    return validate_background_color(params[:background_color].downcase)
+    params.permit(:background_color, :format)
+    unless params[:background_color].nil?
+      return validate_background_color(params[:background_color].downcase)
+    else
+      return nil
+    end
   end
 
   def validate_background_color(background_color)
     unless background_color.match(/[a-f0-9]{6}/)
-      return 'ffffff'
+      return nil
     else
       return background_color
     end 

@@ -1,8 +1,14 @@
 <% view_title 'Welcome!' %>
 
-<a href="/">
+<% if @sticky %>
+<a href="<%= background_path(@background_color) %>">
   <%= @svg.html_safe %>
 </a>
+<% else %>
+<a href="<%= root_path() %>">
+  <%= @svg.html_safe %>
+</a>
+<% end %>
 
 <div class="container">
   <div class="row">
