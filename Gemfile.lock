@@ -220,6 +220,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  matrix
   pg
   puma (~> 5.6)
   rails (~> 7.0.1)
