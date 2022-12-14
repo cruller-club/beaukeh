@@ -145,7 +145,7 @@ function make_circle() {
   cx = rand_x();
   cy = rand_y();
   radius = rand_radius();
-  circle_string = `<circle cx="${cx}%" cy="${cy}%" r="${radius}" style="fill: hsl(${hue}, ${saturation}%, ${lightness}%)"></circle>`;
+  circle_string = `<circle cx="${cx}%" cy="${cy}%" r="${radius}" style="fill: hsla(${hue}, ${saturation}%, ${lightness}%, 0.15)"></circle>`;
 
   circle = {
     "circle_string": circle_string,
@@ -210,6 +210,8 @@ function parse_cruller() {
     parsed_cruller["avg"] = (parsed_cruller["red"] + parsed_cruller["green"] + parsed_cruller["blue"]) / 3;
     parsed_cruller["hex"] = cruller.toUpperCase();
 
+    make_meta(parsed_cruller["avg"]);
+
     return parsed_cruller;
   } else {
     // Break out.
@@ -249,7 +251,7 @@ function draw_beaukeh() {
 
     $("#canvas").attr("href", `/?c=${cruller["hex"]}`)
 
-    $("#gimme-beaukeh").html("");
+    //$("#gimme-beaukeh").html("");
   }
 
   beaukeh = make_circles(quant_population);
@@ -261,5 +263,6 @@ function draw_beaukeh() {
   signature = hex_sha256(circles);
   $("#signature").html(signature);
 
-  $("#gimme-beaukeh").attr("onclick", `downloader('${signature}');`);
+  downloader(signature);
+  $("#gimme-beaukeh").attr("download", `${signature}.png`);
 }
